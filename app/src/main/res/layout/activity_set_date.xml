@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_set_date"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.appdemo.SetDateActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/bk_at_white"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="设置预产期"
+            android:textColor="@color/edt_text"
+            android:textSize="16sp"
+            />
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="{fa-chevron-left}"
+            android:textColor="@drawable/bp_selector"
+            android:textSize="20sp"/>
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/tv_setExpectedDate"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="{fa-check}"
+            android:textColor="@color/bk_btn_blue_NO_Pressed"
+            android:layout_alignParentRight="true"
+            android:textSize="20sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/hint_text"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="#ffffff">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/ButtonHeight"
+            android:text="你的预产期"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/ButtonHeight"
+            android:text="0.0"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            />
+    </RelativeLayout>
+
+    <DatePicker
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:calendarViewShown="false"
+        android:layout_gravity="center_horizontal" />
+
+    <View
+        android:id="@+id/line_date"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/hint_text"/>
+
+    <RelativeLayout
+        android:id="@+id/tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*请选择产检时医生告知的预产期"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/hint_text"
+            android:clickable="false"/>
+        <TextView
+            android:id="@+id/calculation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="计算预产期"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:textColor="@drawable/ttv_selector"
+            android:clickable="true"/>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/last"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical|right"
+            android:text="末次月经日期"/>
+        <DatePicker
+            android:id="@+id/date_last"
+            android:layout_width="240dp"
+            android:layout_height="150dp"
+            android:calendarViewShown="false"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/days"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        >
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical|right"
+            android:text="月经周期天数"
+            />
+        <EditText
+            android:id="@+id/menstruation"
+            android:layout_width="240dp"
+            android:layout_height="@dimen/EditTextHeight"
+            android:inputType="number"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/edt_bg"
+            style="@style/AppTheme.EditText"/>
+        <Button
+            android:id="@+id/btn_get_date"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ButtonHeight"
+            android:layout_below="@id/menstruation"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="计算预产期"
+            style="@style/AppTheme.Button"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/line_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="20dp"
+        android:background="@color/hint_text"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/unCalculation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="知道预产期?"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@drawable/ttv_selector"
+        android:clickable="true"
+        android:visibility="gone"/>
+</LinearLayout>

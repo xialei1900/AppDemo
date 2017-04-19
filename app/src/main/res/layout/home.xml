@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/bottomPanel"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:background="@color/bk_at_white"
+        android:layout_alignParentBottom="true" >
+        
+        <LinearLayout
+            android:id="@+id/bottom_bar1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:clickable="true">
+
+            <com.joanzapata.iconify.widget.IconToggleButton
+                android:id="@+id/bottom_toggle_1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:background="#0000"
+                android:gravity="center"
+                android:textOn="{fa-star}"
+                android:textOff="{fa-star-o}"
+                android:textSize="30sp"
+                android:textColor="@drawable/bp_selector"
+                android:clickable="false"
+                />
+
+            <TextView
+                android:id="@+id/tv_daily"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:text="每日"
+                android:textSize="12sp"
+                android:textColor="@drawable/bp_selector"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_bar2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:clickable="true">
+
+            <com.joanzapata.iconify.widget.IconToggleButton
+                android:id="@+id/bottom_toggle_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:background="#0000"
+                android:gravity="center"
+                android:textOn="{fa-heart}"
+                android:textOff="{fa-heart-o}"
+                android:textSize="30sp"
+                android:textColor="@drawable/bp_selector"
+                android:clickable="false"/>
+
+            <TextView
+                android:id="@+id/tv_safe"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:text="安全"
+                android:textSize="12sp"
+                android:textColor="@drawable/bp_selector"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_bar3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:clickable="true">
+
+            <com.joanzapata.iconify.widget.IconToggleButton
+                android:id="@+id/bottom_toggle_3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:background="#0000"
+                android:gravity="center"
+                android:textOn="{fa-send}"
+                android:textOff="{fa-send-o}"
+                android:textSize="30sp"
+                android:textColor="@drawable/bp_selector"
+                android:clickable="false"/>
+
+            <TextView
+                android:id="@+id/tv_discover"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:text="发现"
+                android:textSize="12sp"
+                android:textColor="@drawable/bp_selector"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_bar4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:clickable="true">
+
+            <com.joanzapata.iconify.widget.IconToggleButton
+                android:id="@+id/bottom_toggle_4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:background="#0000"
+                android:gravity="center"
+                android:textOn="{fa-commenting}"
+                android:textOff="{fa-commenting-o}"
+                android:textSize="30sp"
+                android:textColor="@drawable/bp_selector"
+                android:clickable="false"/>
+
+            <TextView
+                android:id="@+id/tv_group"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:text="小组"
+                android:textSize="12sp"
+                android:textColor="@drawable/bp_selector"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/bottomPanel_bar"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_above="@id/bottomPanel"
+        android:background="@color/hint_text"/>
+
+    <RelativeLayout
+        android:id="@+id/topPanel"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/bk_btn_blue_NO_Pressed"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/text_Panel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="每日"
+            android:textColor="@color/btn_text"
+            android:textSize="16sp"
+            />
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/tv_login"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="{fa-user}"
+            android:textColor="@color/btn_text"
+            android:textSize="25sp"/>
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/tv_item"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="{fa-bars}"
+            android:textColor="@color/btn_text"
+            android:layout_alignParentRight="true"
+            android:textSize="25sp"/>
+
+        <View
+            android:id="@+id/topPanel_bar"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/hint_text"/>
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topPanel"
+        android:layout_above="@id/bottomPanel_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bk_at_white">
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/imgbtn_selector"
+        android:layout_marginTop="110dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <EditText
+        android:id="@+id/edt_loginId"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/EditTextHeight"
+        android:layout_marginTop="10dp"
+        android:hint="请输入账号"
+        android:inputType="phone"
+        style="@style/AppTheme.EditText"/>
+
+    <EditText
+        android:id="@+id/edt_loginPwd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/EditTextHeight"
+        android:layout_marginTop="1dp"
+        android:hint="请输入密码"
+        android:inputType="textPassword"
+        style="@style/AppTheme.EditText"/>
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ButtonHeight"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="登录"
+        style="@style/AppTheme.Button"
+        android:gravity="center"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:id="@+id/forgetPwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="忘记密码？"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:textColor="@drawable/ttv_selector"
+            android:clickable="true"/>
+        <TextView
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="新用户注册"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:textColor="@drawable/ttv_selector"
+            android:clickable="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

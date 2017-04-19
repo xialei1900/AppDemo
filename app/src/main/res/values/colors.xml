@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="bk_at_white">#f0f0f0</color>
+
+    <color name="bk_btn_blue_NO_Pressed">#FF6EB4</color>
+    <color name="bk_btn_blue_Pressed">#009ACD</color>
+    <color name="btn_text">#ffffff</color>
+
+    <color name="bk_edt_white">#ffffff</color>
+    <color name="edt_text">#000</color>
+    <color name="hint_text">#95A1AA</color>
+
+    <color name="txtView_Pressed">#00F5FF</color>
+
+    <color name="bk_topBar">#00BFFF</color>
+
+    <color name="theme_red">#FF3030</color>
+
+    <color name="icon_black">#4A4A4A</color>
+
+    <color name="theme_blue">#74bed7</color>
+    
+    <color name="theme_green">#c0cf5b</color>
+
+    <color name="theme_yellow">#ffdec9</color>
+</resources>
