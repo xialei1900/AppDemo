@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/girl_icon" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:text="快要进入睡眠模式啦，别忘了今天的最后一杯水哦！"
+            android:textColor="@drawable/bp_selector"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/hint_text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="{fa-chevron-left}"
+            android:textColor="@color/theme_green"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="2"
+            android:src="@mipmap/cup" />
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="{fa-chevron-right}"
+            android:textColor="@color/theme_green"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="第八杯水 20:30"
+        android:textColor="@color/bk_btn_blue_NO_Pressed"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:lineSpacingExtra="3dp"
+        android:text="准妈妈睡眠期间都特别爱出汗，睡觉前这杯水就是为了补充睡眠中流失的水分，但是妈妈们要记得最后一杯不可贪多哟，不然晚上可要频繁起夜了。"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/item_drink_btn_8"
+        android:visibility="gone"
+        style="@style/AppTheme.Button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ButtonHeight"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="完成"
+        android:onClick="drinkDone"/>
+    <ImageView
+        android:id="@+id/item_drink_done_8"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/done"
+        android:layout_marginTop="30dp"
+        android:visibility="gone"/>
+</LinearLayout>

@@ -24,6 +24,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import bean.UserBean;
+
 /**
  * Created by Administrator on 2017/3/15.
  */
@@ -62,7 +64,7 @@ public class LoginActivity extends Activity{
                     public void onResponse(String response) {
                         //解析用户json
                         Gson gson = new Gson();
-                        UserBean userBean = gson.fromJson(response,UserBean.class);
+                        UserBean userBean = gson.fromJson(response, UserBean.class);
                         //存储用户信息
                         SPUtils.put(mContext,"userName",userBean.getUserName());
                         SPUtils.put(mContext,"sex",userBean.getSex());
@@ -78,7 +80,7 @@ public class LoginActivity extends Activity{
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.i("xl",error.getMessage());
-                        Toast.makeText(LoginActivity.this,error.getMessage(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this,"网络错误",Toast.LENGTH_SHORT).show();
                     }
                 })
                 {

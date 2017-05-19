@@ -3,6 +3,7 @@ package com.example.administrator.appdemo;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     public static final int PAGE_ONE = 0;
     public static final int PAGE_TWO = 1;
     public static final int PAGE_THREE = 2;
-    public static final int PAGE_FOUR = 3;
 
     private ViewPager viewPager;
     private MyFragmentPagerAdapter myFragmentPagerAdapter;
@@ -59,17 +59,11 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private ToggleButton bottom_toggle_1;
     private ToggleButton bottom_toggle_2;
     private ToggleButton bottom_toggle_3;
-    private ToggleButton bottom_toggle_4;
 
     private View bottomBar_1;
     private View bottomBar_2;
     private View bottomBar_3;
-    private View bottomBar_4;
 
-    private TextView tv_daily;
-    private TextView tv_safe;
-    private TextView tv_discouver;
-    private TextView tv_group;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,37 +72,31 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 .with(new FontAwesomeModule())
                 .with(new TypiconsModule());
         setContentView(R.layout.home);
-
+        //如果用户未登录跳转到登录
+        mContext = getApplicationContext();
+        if(SPUtils.contains(mContext,"userName")){
+            Toast.makeText(this,"欢迎您,"+SPUtils.get(mContext,"userName",""),Toast.LENGTH_SHORT).show();
+        }else {
+            startActivity(new Intent(this,LoginActivity.class));
+        }
         myFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
         bindViews();
         setSelectedState(PAGE_ONE);
-
     }
 
 
     //初始化
     private void bindViews(){
-        //如果用户未登录跳转到登录
-        mContext = getApplicationContext();
-//        Toast.makeText(this,SPUtils.get(mContext,"userName",null).toString(),Toast.LENGTH_SHORT).show();
-        if(SPUtils.contains(mContext,"userName")){
-            Toast.makeText(this,"欢迎您,"+SPUtils.get(mContext,"userName",""),Toast.LENGTH_SHORT).show();
-
-        }else {
-            startActivity(new Intent(this,LoginActivity.class));
-        }
         //获取视图对象
         textTopContent = (TextView) findViewById(R.id.text_Panel);
         bottom_toggle_1 = (ToggleButton) findViewById(R.id.bottom_toggle_1);
         bottom_toggle_2 = (ToggleButton) findViewById(R.id.bottom_toggle_2);
         bottom_toggle_3 = (ToggleButton) findViewById(R.id.bottom_toggle_3);
-        bottom_toggle_4 = (ToggleButton) findViewById(R.id.bottom_toggle_4);
 
         //viewGroup = (ViewGroup) findViewById(R.id.bottomPanel);
         bottomBar_1 = findViewById(R.id.bottom_bar1);
         bottomBar_2 = findViewById(R.id.bottom_bar2);
         bottomBar_3 = findViewById(R.id.bottom_bar3);
-        bottomBar_4 = findViewById(R.id.bottom_bar4);
         login = (TextView) findViewById(R.id.tv_login);
 
         //设置监听事件
@@ -116,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         bottomBar_1.setOnClickListener(listener);
         bottomBar_2.setOnClickListener(listener);
         bottomBar_3.setOnClickListener(listener);
-        bottomBar_4.setOnClickListener(listener);
         login.setOnClickListener(listener);
 
         viewPager = (ViewPager) findViewById(R.id.scrollView);
@@ -141,10 +128,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 case R.id.bottom_bar3:
                     viewPager.setCurrentItem(PAGE_THREE);
                     setToggleButtonCheckedState(PAGE_THREE);
-                    break;
-                case R.id.bottom_bar4:
-                    viewPager.setCurrentItem(PAGE_FOUR);
-                    setToggleButtonCheckedState(PAGE_FOUR);
                     break;
                 case R.id.tv_login:
                     if(SPUtils.contains(mContext,"userName")){
@@ -189,11 +172,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                     setToggleButtonCheckedState(PAGE_THREE);
                     textTopContent.setText("发现");
                     break;
-                case PAGE_FOUR:
-                    setSelectedState(PAGE_FOUR);
-                    setToggleButtonCheckedState(PAGE_FOUR);
-                    textTopContent.setText("小组");
-                    break;
             }
         }
     }
@@ -203,7 +181,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         bottomBar_1.setSelected(false);
         bottomBar_2.setSelected(false);
         bottomBar_3.setSelected(false);
-        bottomBar_4.setSelected(false);
 
         switch (page){
             case PAGE_ONE:
@@ -215,9 +192,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
             case PAGE_THREE:
                 bottomBar_3.setSelected(true);
                 break;
-            case PAGE_FOUR:
-                bottomBar_4.setSelected(true);
-                break;
         }
     }
 
@@ -226,7 +200,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         bottom_toggle_1.setChecked(false);
         bottom_toggle_2.setChecked(false);
         bottom_toggle_3.setChecked(false);
-        bottom_toggle_4.setChecked(false);
 
         switch (page){
             case PAGE_ONE:
@@ -238,12 +211,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
             case PAGE_THREE:
                 bottom_toggle_3.setChecked(true);
                 break;
-            case PAGE_FOUR:
-                bottom_toggle_4.setChecked(true);
-                break;
         }
     }
-
 
 
     //双击退出

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bk_at_white">
+
+    <EditText
+        android:id="@+id/popup_title"
+        style="@style/AppTheme.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/EditTextHeight"
+        android:layout_marginTop="20dp"
+        android:hint="标题"
+        android:inputType="text"
+        />
+    <EditText
+        android:id="@+id/popup_topic"
+        style="@style/AppTheme.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/EditTextHeight"
+        android:layout_marginTop="10dp"
+        android:hint="话题"
+        android:inputType="text"
+        />
+    <EditText
+        android:id="@+id/popup_info"
+        style="@style/AppTheme.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/EditTextHeight"
+        android:layout_marginTop="10dp"
+        android:hint="问题描述"
+        android:inputType="text"
+        />
+    <Button
+        android:id="@+id/popup_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ButtonHeight"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="提问"
+        style="@style/AppTheme.Button"
+        android:gravity="center"/>
+</LinearLayout>

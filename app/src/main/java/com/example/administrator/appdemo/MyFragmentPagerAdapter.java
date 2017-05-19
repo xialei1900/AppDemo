@@ -11,18 +11,16 @@ import android.view.ViewGroup;
 
 public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    private final int PAGE_COUNT=4;
+    private final int PAGE_COUNT=3;
     private Myfragment_1 myfragment_1 = null;
     private Myfragment_2 myfragment_2 = null;
     private Myfragment_3 myfragment_3 = null;
-    private Myfragment_4 myfragment_4 = null;
 
     public MyFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
         myfragment_1 = new Myfragment_1();
         myfragment_2 = new Myfragment_2();
         myfragment_3 = new Myfragment_3();
-        myfragment_4 = new Myfragment_4();
     }
 
     @Override
@@ -37,9 +35,6 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
                 break;
             case MainActivity.PAGE_THREE:
                 fragment = myfragment_3;
-                break;
-            case MainActivity.PAGE_FOUR:
-                fragment = myfragment_4;
                 break;
         }
         return fragment;

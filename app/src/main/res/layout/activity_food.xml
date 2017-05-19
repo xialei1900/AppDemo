@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_food"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.appdemo.FoodActivity">
+
+    <RelativeLayout
+        android:id="@+id/food_top"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/bk_btn_blue_NO_Pressed"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/food_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="主食"
+            android:textColor="@color/btn_text"
+            android:textSize="16sp"
+            />
+
+        <com.joanzapata.iconify.widget.IconTextView
+
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="{fa-angle-left}"
+            android:textColor="@color/btn_text"
+            android:textSize="25sp"/>
+
+        <View
+            android:id="@+id/topPanel_bar"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/hint_text"/>
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/food_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/food_top"/>
+</RelativeLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/girl_icon" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:text="晚餐前半小时补水吸收效果更佳，不管渴不渴都喝一杯哦~"
+            android:textColor="@drawable/bp_selector"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/hint_text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="{fa-chevron-left}"
+            android:textColor="@color/theme_green"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="2"
+            android:src="@mipmap/cup" />
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="{fa-chevron-right}"
+            android:textColor="@color/theme_green"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="第六杯水 17:30"
+        android:textColor="@color/bk_btn_blue_NO_Pressed"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:lineSpacingExtra="3dp"
+        android:text="准妈妈知道吗？晚餐前半小时空腹喝水，水分能很快被身体吸收，并且迅速渗透血液，因而补水效果最佳，同时还能为晚餐消化提供必要水分。"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/item_drink_btn_6"
+        android:visibility="gone"
+        style="@style/AppTheme.Button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ButtonHeight"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="完成"
+        android:onClick="drinkDone"/>
+    <ImageView
+        android:id="@+id/item_drink_done_6"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/done"
+        android:layout_marginTop="30dp"
+        android:visibility="gone"/>
+</LinearLayout>

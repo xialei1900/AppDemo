@@ -180,7 +180,6 @@ public class SetDateActivity extends AppCompatActivity {
         c.add(Calendar.MONTH,9);
         c.add(Calendar.DAY_OF_MONTH,7+yjzq-28);
         expectedDate = c.getTime();
-        //Toast.makeText(SetDateActivity.this,new SimpleDateFormat("yyyy-MM-dd").format(expectedDate),Toast.LENGTH_SHORT).show();
         //修改显示时间
         tv_title.setText(new SimpleDateFormat("yyyy-MM-dd").format(expectedDate));
     }

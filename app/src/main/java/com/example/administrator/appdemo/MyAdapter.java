@@ -1,6 +1,7 @@
 package com.example.administrator.appdemo;
 
 import android.content.Context;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -179,6 +182,7 @@ public abstract class MyAdapter<T> extends BaseAdapter {
          */
         public ViewHolder setOnClickListener(int id, View.OnClickListener listener) {
             getView(id).setOnClickListener(listener);
+
             return this;
         }
 
@@ -198,6 +202,33 @@ public abstract class MyAdapter<T> extends BaseAdapter {
             return this;
         }
 
+        /**
+         * 设置文字颜色
+         */
+        public ViewHolder setTextColor(int id, int colorId) {
+
+            View view = getView(id);
+            if (view instanceof TextView) {
+                ((TextView) view).setTextColor(colorId);
+            }
+            return this;
+        }
+        /**
+         * 加载图片
+         */
+        public ViewHolder loadImageResource(int id, String url,Context context) {
+            ImageView view = getView(id);
+            Picasso.with(context)
+                    .load(url)
+                    .resize(110,110)
+                    .into(view);
+//            if (view instanceof ImageView) {
+//                ((ImageView) view).setImageResource(drawableRes);
+//            } else {
+//                view.setBackgroundResource(drawableRes);
+//            }
+            return this;
+        }
         //其他方法可自行扩展
 
     }

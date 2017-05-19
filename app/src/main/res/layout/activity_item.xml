@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.appdemo.ItemActivity">
+    <RelativeLayout
+        android:id="@+id/item_topPanel"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/bk_btn_blue_NO_Pressed"
+        >
+
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="Title"
+            android:textColor="@color/btn_text"
+            android:textSize="16sp"
+            />
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/item_back"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="{fa-user}"
+            android:textColor="@color/btn_text"
+            android:textSize="25sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/hint_text"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/wad"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        android:layout_marginTop="5dp">
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/item_left"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="{fa-chevron-left}"
+            android:textColor="@drawable/bp_selector"
+            android:textSize="16sp"
+            android:clickable="true"/>
+        <TextView
+            android:id="@+id/item_weekDay"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:text="@string/app_name"
+            android:textColor="@color/bk_btn_blue_NO_Pressed"
+            android:textSize="18sp"
+            android:gravity="center"/>
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/item_right"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="{fa-chevron-right}"
+            android:textColor="@drawable/bp_selector"
+            android:textSize="16sp"
+            android:clickable="true"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/hint_text"/>
+    <ListView
+        android:id="@+id/item_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="8dp"
+        />
+    <ViewFlipper
+        android:id="@+id/vflp_help"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:flipInterval="100">
+
+        <include layout="@layout/page_help_1" />
+
+        <include layout="@layout/page_help_2" />
+
+        <include layout="@layout/page_help_3" />
+
+        <include layout="@layout/page_help_4" />
+
+        <include layout="@layout/page_help_5" />
+
+        <include layout="@layout/page_help_6" />
+
+        <include layout="@layout/page_help_7" />
+
+        <include layout="@layout/page_help_8" />
+
+    </ViewFlipper>
+</LinearLayout>

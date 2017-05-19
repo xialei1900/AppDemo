@@ -4,6 +4,22 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="@color/bk_at_white"
 android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <EditText
+            android:id="@+id/fragment_search_key"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/EditTextHeight"
+            android:hint="搜索"
+            android:inputType="text"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            style="@style/AppTheme.EditText"/>
+    </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -19,52 +35,12 @@ android:orientation="vertical">
                 android:background="#ffffff"
                 android:padding="5dp"
                 android:layout_marginTop="5dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="能不能吃?"
-                    android:textColor="@color/bk_btn_blue_NO_Pressed"
-                    android:textSize="14sp"
-                    android:layout_marginTop="10dp"/>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1px"
-                    android:background="@color/hint_text"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"/>
                 <com.example.administrator.appdemo.MyGridView
                     android:id="@+id/grid_food"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:numColumns="4"
-                    android:layout_marginBottom="10dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="#ffffff"
-                android:layout_marginTop="5dp"
-                android:padding="5dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="能不能做?"
-                    android:textColor="@color/bk_btn_blue_NO_Pressed"
-                    android:textSize="14sp"
-                    android:layout_marginTop="5dp"/>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1px"
-                    android:background="@color/hint_text"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"/>
-                <com.example.administrator.appdemo.MyGridView
-                    android:id="@+id/grid_exercise"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:numColumns="3"
-                    android:layout_marginBottom="10dp"/>
+                    android:verticalSpacing="35dp"  />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -24,70 +24,39 @@
                 />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:orientation="horizontal"
                 android:background="#ffffff"
                 android:layout_marginTop="5dp">
                 <com.joanzapata.iconify.widget.IconTextView
                     android:id="@+id/tv_left"
-                    android:layout_width="50dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="{fa-chevron-left}"
                     android:textColor="@drawable/bp_selector"
-                    android:textSize="16sp"/>
-                <HorizontalScrollView
+                    android:textSize="16sp"
+                    android:clickable="true"/>
+                <TextView
+                    android:id="@+id/tv_weekAndDay"
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:scrollbars="none"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_gravity="center"
-                        android:gravity="center">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="20dp"
-                            android:gravity="center"
-                            android:text="1周+1天"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:layout_marginRight="20dp"
-                            android:text="1周+2天"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:layout_marginRight="20dp"
-                            android:text="1周+3天"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:layout_marginRight="20dp"
-                            android:text="1周+4天"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:layout_marginRight="20dp"
-                            android:text="1周+5天"/>
-                    </LinearLayout>
-                </HorizontalScrollView>
+                    android:layout_weight="3"
+                    android:layout_height="match_parent"
+                    android:text="@string/app_name"
+                    android:textColor="@color/bk_btn_blue_NO_Pressed"
+                    android:textSize="18sp"
+                    android:gravity="center"/>
                 <com.joanzapata.iconify.widget.IconTextView
                     android:id="@+id/tv_right"
-                    android:layout_width="50dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="{fa-chevron-right}"
                     android:textColor="@drawable/bp_selector"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:clickable="true"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -111,9 +80,11 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"/>
                 <LinearLayout
+                    android:id="@+id/checkRemind_item"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:clickable="true">
                     <com.joanzapata.iconify.widget.IconTextView
                         android:layout_width="80dp"
                         android:layout_height="match_parent"
@@ -133,6 +104,7 @@
                             android:textColor="@color/hint_text"
                             android:textSize="12sp"/>
                         <TextView
+                            android:id="@+id/checkRemind"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
@@ -141,9 +113,11 @@
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/nutritionRecipes_item"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:clickable="true">
                     <com.joanzapata.iconify.widget.IconTextView
                         android:layout_width="80dp"
                         android:layout_height="match_parent"
@@ -164,18 +138,23 @@
                             android:textSize="12sp"/>
 
                         <TextView
+                            android:id="@+id/nutritionRecipes"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
                             android:text="乌鸡汤"
                             android:textSize="16sp"
-                            android:id="@+id/textView" />
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            />
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/drinkingRemind_item"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:clickable="true">
                     <com.joanzapata.iconify.widget.IconTextView
                         android:layout_width="80dp"
                         android:layout_height="match_parent"
@@ -195,6 +174,7 @@
                             android:textColor="@color/hint_text"
                             android:textSize="12sp"/>
                         <TextView
+                            android:id="@+id/drinkingRemind"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"

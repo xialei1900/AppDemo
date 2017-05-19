@@ -1,4 +1,4 @@
-package com.example.administrator.appdemo;
+package bean;
 
 /**
  * Created by Administrator on 2017/4/16.
