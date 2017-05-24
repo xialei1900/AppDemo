@@ -1,6 +1,7 @@
 package com.example.administrator.appdemo;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,12 +29,14 @@ public class RegisterActivity extends Activity {
     private EditText registerUserName = null;
     private Button register = null;
 
-
+    Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        mContext = getApplicationContext();
 
         registerId = (EditText) findViewById(R.id.edt_registerId);
         registerPwd = (EditText) findViewById(R.id.edt_registerPwd);
@@ -69,6 +72,13 @@ public class RegisterActivity extends Activity {
             public void onResponse(String response) {
                 //Toast.makeText(RegisterActivity.this,response,Toast.LENGTH_SHORT).show();
                 if(response.equals("S")){
+                    //存储用户信息
+                    SPUtils.put(mContext,"userName",registerUserName.getText().toString());
+                    //SPUtils.put(mContext,"sex",userBean.getSex());
+                    //SPUtils.put(mContext,"age",userBean.getAge());
+                    //SPUtils.put(mContext,"height",userBean.getHeight());
+                    //SPUtils.put(mContext,"birthday",userBean.getBirthday());
+                    //SPUtils.put(mContext,"expectedDate",userBean.getExpectedDate());
                     Intent intent = new Intent(RegisterActivity.this,SetDateActivity.class);
                     RegisterActivity.this.startActivity(intent);
                 }else if(response.equals("E")){

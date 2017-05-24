@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_user_info"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+
     tools:context="com.example.administrator.appdemo.UserInfoActivity">
 
-    <TextView
-        android:id="@+id/week"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="week"
-        android:textSize="50sp"/>
-    <TextView
-        android:id="@+id/day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="day"
-        android:textSize="50sp"
-        android:layout_marginTop="10dp"/>
-    <Button
-        android:id="@+id/ok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="手动"/>
-    <Button
-        android:id="@+id/ok2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="自动"/>
+    <!--<TextView-->
+        <!--android:id="@+id/week"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:text="week"-->
+        <!--android:textSize="50sp"/>-->
+    <!--<TextView-->
+        <!--android:id="@+id/day"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:text="day"-->
+        <!--android:textSize="50sp"-->
+        <!--android:layout_marginTop="10dp"/>-->
+    <!--<Button-->
+        <!--android:id="@+id/ok"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:text="手动"/>-->
+    <!--<Button-->
+        <!--android:id="@+id/ok2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:text="自动"/>-->
     <Button
         android:id="@+id/btn_writtenOff"
         android:layout_width="match_parent"
@@ -45,5 +45,6 @@
         android:layout_marginRight="10dp"
         android:text="注销"
         style="@style/AppTheme.Button"
-        android:gravity="center"/>
-</LinearLayout>
+        android:gravity="center"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

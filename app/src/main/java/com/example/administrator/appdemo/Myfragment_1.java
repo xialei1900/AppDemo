@@ -1,7 +1,13 @@
 
 package com.example.administrator.appdemo;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -70,6 +76,11 @@ public class Myfragment_1 extends android.support.v4.app.Fragment {
     private Date drinkingTime_8;
     private Date drinkingTime_0;
 
+    private NotificationManager mNManager;
+    private Notification notify;
+    Bitmap LargeBitmap = null;
+    private static final int NOTIFYID_1 = 1;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -109,13 +120,16 @@ public class Myfragment_1 extends android.support.v4.app.Fragment {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        if(SPUtils.contains(MainActivity.mContext,"userName")){
+        if(SPUtils.contains(MainActivity.mContext,"expectedDate")){
             //设置预产期
             showExpectedDate();
             //设置喝水提醒
+            Log.i("xl",""+2);
             setDrinkingRemind();
             //获取每日提醒数据更新
+            Log.i("xl",""+3);
             getRemindToday();
+            Log.i("xl",""+4);
         }
         return view;
     }
@@ -142,6 +156,7 @@ public class Myfragment_1 extends android.support.v4.app.Fragment {
 
     //获取每日提醒数据更新
     public void getRemindToday() {
+
         final RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://10.18.50.89:9090/", new Response.Listener<String>() {
             @Override
@@ -213,6 +228,7 @@ public class Myfragment_1 extends android.support.v4.app.Fragment {
                 index = 0;
             }
             //Log.i("xl","setDrinkingRemind");
+            showNotify(timeNow);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -303,4 +319,51 @@ public class Myfragment_1 extends android.support.v4.app.Fragment {
             startActivity(intent);
         }
     };
+
+    //显示通知
+    private void showNotify(Date now){
+        if((int) now.getTime() == (int) drinkingTime_1.getTime())
+        {
+            Notify();
+        }else if((int) now.getTime() == (int) drinkingTime_2.getTime()){
+            Notify();
+        }else if((int) now.getTime() == (int) drinkingTime_3.getTime()){
+            Notify();
+        }else if((int) now.getTime() == (int) drinkingTime_4.getTime()){
+            Notify();
+        }else if((int) now.getTime() == (int) drinkingTime_5.getTime()){
+            Notify();
+        }else if((int) now.getTime() == (int) drinkingTime_6.getTime()){
+            Notify();
+        }else if((int) now.getTime() == (int) drinkingTime_7.getTime()){
+            Notify();
+        }else if((int) now.getTime() == (int) drinkingTime_8.getTime()){
+            Notify();
+        }
+    }
+
+    //通知
+    public final void Notify(){
+        //定义一个PendingIntent点击Notification后启动一个Activity
+        Intent it = new Intent(getActivity(), ItemActivity.class);
+        it.putExtra("id","" + R.id.drinkingRemind_item);
+        it.putExtra("week",""+week);
+        it.putExtra("day",""+day);
+        it.putExtra("index",""+index);
+        PendingIntent pit = PendingIntent.getActivity(getActivity(), 0, it, 0);
+        LargeBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.cup);
+        Notification.Builder mBuilder = new Notification.Builder(getActivity());
+        mBuilder.setContentTitle("喝水时间到了")                        //标题
+                .setContentText("孕期要及时补充水分哦~")      //内容
+                .setTicker("喝水时间到！")             //收到信息后状态栏显示的文字信息
+                .setWhen(System.currentTimeMillis())           //设置通知时间
+                .setLargeIcon(LargeBitmap)                     //设置大图标
+                .setDefaults(Notification.DEFAULT_VIBRATE)    //设置默认振动器
+                .setAutoCancel(true)                           //设置点击后取消Notification
+                .setContentIntent(pit);                        //设置PendingIntent
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            notify = mBuilder.build();
+        }
+        mNManager.notify(NOTIFYID_1, notify);
+    }
 }

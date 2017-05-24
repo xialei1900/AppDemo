@@ -55,6 +55,13 @@ public class FoodActivity extends AppCompatActivity {
             Log.i("xl",""+sort);
         }
         getFoodList();
+        //返回
+        findViewById(R.id.food_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private String foodName;

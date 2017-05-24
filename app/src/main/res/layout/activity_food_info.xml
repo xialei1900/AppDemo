@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.administrator.appdemo.FoodInfoActivity">
+
     <RelativeLayout
         android:id="@+id/food_info_top"
         android:layout_width="match_parent"
@@ -23,6 +24,7 @@
             android:textSize="16sp"
             />
         <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/food_info_back"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -35,6 +37,7 @@
             android:layout_alignParentBottom="true"
             android:background="@color/hint_text"/>
     </RelativeLayout>
+
     <ImageView
         android:id="@+id/food_info_pic"
         android:layout_width="match_parent"

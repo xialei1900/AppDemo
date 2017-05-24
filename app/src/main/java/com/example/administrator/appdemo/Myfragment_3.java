@@ -1,7 +1,6 @@
 package com.example.administrator.appdemo;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.Toast;
@@ -27,13 +27,13 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import bean.FoodBean;
-import bean.questionBean;
+import bean.QuestionBean;
 
 /**
  * Created by Administrator on 2017/3/16.
@@ -43,24 +43,27 @@ public class Myfragment_3 extends android.support.v4.app.Fragment {
     public Myfragment_3(){}
 
     private ListView question_list;
-    private List<questionBean> mdata;
-    private MyAdapter<questionBean> myAdapter;
+    private List<QuestionBean> mdata;
+    private MyAdapter<QuestionBean> myAdapter;
 
     private FloatingActionButton fab;
-
+    private Button popup_submit;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fg_content_3,container,false);
-
+        Log.i("xl","M3");
         question_list = (ListView) view.findViewById(R.id.question_list);
         fab = (FloatingActionButton) view.findViewById(R.id.fab);
+        popup_submit = (Button) view.findViewById(R.id.popup_submit);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showPopup(v);
             }
         });
+
         getQuestionList();
         return view;
     }
@@ -71,10 +74,10 @@ public class Myfragment_3 extends android.support.v4.app.Fragment {
             @Override
             public void onResponse(String response) {
                 Gson gson = new Gson();
-                mdata = gson.fromJson("["+response+"]",new TypeToken<ArrayList<questionBean>>() {}.getType());
-                myAdapter = new MyAdapter<questionBean>((ArrayList<questionBean>) mdata, R.layout.question_content) {
+                mdata = gson.fromJson("["+response+"]",new TypeToken<ArrayList<QuestionBean>>() {}.getType());
+                myAdapter = new MyAdapter<QuestionBean>((ArrayList<QuestionBean>) mdata, R.layout.question_content) {
                     @Override
-                    public void bindView(ViewHolder holder, questionBean obj) {
+                    public void bindView(ViewHolder holder, QuestionBean obj) {
 
                         holder.setText(R.id.question_list_topic, obj.getTopic());
                         holder.setText(R.id.question_list_title, obj.getTitle());
@@ -88,7 +91,12 @@ public class Myfragment_3 extends android.support.v4.app.Fragment {
                 question_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                        QuestionBean item = (QuestionBean) parent.getItemAtPosition(position);
+                        Intent it = new Intent(getActivity(),QuestionActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("item", item);
+                        it.putExtras(bundle);
+                        startActivity(it);
                     }
                 });
             }
@@ -112,7 +120,7 @@ public class Myfragment_3 extends android.support.v4.app.Fragment {
     private void showPopup(View v){
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.popup_content, null, false);
         final PopupWindow popWindow = new PopupWindow(view,
-                ViewGroup.LayoutParams.MATCH_PARENT, 500, true);
+                ViewGroup.LayoutParams.MATCH_PARENT, 600, true);
         popWindow.setTouchable(true);
         popWindow.setTouchInterceptor(new View.OnTouchListener() {
             @Override
@@ -123,7 +131,7 @@ public class Myfragment_3 extends android.support.v4.app.Fragment {
             }
         });
         popWindow.setBackgroundDrawable(new ColorDrawable(0x00000000));
-        popWindow.showAtLocation(v, Gravity.CENTER,0,0);
+        popWindow.showAtLocation(v, Gravity.CENTER,0,-300);
         darkenBackground(0.2f);
         popWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
@@ -131,6 +139,12 @@ public class Myfragment_3 extends android.support.v4.app.Fragment {
                 darkenBackground(1f);
             }
         });
+//        popup_submit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.i("xl","submit");
+//            }
+//        });
     }
 
     /**
@@ -142,5 +156,9 @@ public class Myfragment_3 extends android.support.v4.app.Fragment {
 
         getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         getActivity().getWindow().setAttributes(lp);
+    }
+
+    private void submit(){
+        Log.i("xl","submit");
     }
 }

@@ -59,6 +59,7 @@ public class Myfragment_2 extends android.support.v4.app.Fragment implements Ada
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fg_content_2,container,false);
+        Log.i("xl","M2");
         mContext = view.getContext();
         grid_food = (MyGridView) view.findViewById(R.id.grid_food);
         fragment_search_key = (EditText) view.findViewById(R.id.fragment_search_key);
@@ -100,7 +101,7 @@ public class Myfragment_2 extends android.support.v4.app.Fragment implements Ada
                 startActivity(it);
             }
         });
-
+        Log.i("xl","M2 end");
         return view;
     }
 
@@ -113,7 +114,6 @@ public class Myfragment_2 extends android.support.v4.app.Fragment implements Ada
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             showListPopulWindow(s.toString());
         }
 

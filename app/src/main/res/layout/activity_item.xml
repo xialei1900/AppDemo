@@ -29,7 +29,7 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="{fa-user}"
+            android:text="{fa-angle-left}"
             android:textColor="@color/btn_text"
             android:textSize="25sp"/>
 

@@ -27,7 +27,7 @@
             />
 
         <com.joanzapata.iconify.widget.IconTextView
-
+            android:id="@+id/food_back"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:gravity="center"

@@ -1,46 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="@color/bk_at_white"
-android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bk_at_white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
+        android:orientation="vertical">
+
         <EditText
             android:id="@+id/fragment_search_key"
+            style="@style/AppTheme.EditText"
             android:layout_width="match_parent"
             android:layout_height="@dimen/EditTextHeight"
-            android:hint="搜索"
-            android:inputType="text"
-            android:gravity="center"
             android:layout_marginTop="5dp"
-            style="@style/AppTheme.EditText"/>
+            android:gravity="center"
+            android:hint="搜索"
+            android:inputType="text" />
     </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:layout_marginTop="5dp"
                 android:background="#ffffff"
-                android:padding="5dp"
-                android:layout_marginTop="5dp">
+                android:orientation="vertical"
+                android:padding="5dp">
+
                 <com.example.administrator.appdemo.MyGridView
                     android:id="@+id/grid_food"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:numColumns="3"
-                    android:verticalSpacing="35dp"  />
+                    android:verticalSpacing="35dp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

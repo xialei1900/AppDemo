@@ -33,7 +33,7 @@
         android:inputType="text"
         />
     <Button
-        android:id="@+id/popup_confirm"
+        android:id="@+id/popup_submit"
         android:layout_width="match_parent"
         android:layout_height="@dimen/ButtonHeight"
         android:layout_marginTop="10dp"

@@ -74,7 +74,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         setContentView(R.layout.home);
         //如果用户未登录跳转到登录
         mContext = getApplicationContext();
-        if(SPUtils.contains(mContext,"userName")){
+        if(SPUtils.contains(mContext,"expectedDate")){
+           // Log.i("xl","main");
             Toast.makeText(this,"欢迎您,"+SPUtils.get(mContext,"userName",""),Toast.LENGTH_SHORT).show();
         }else {
             startActivity(new Intent(this,LoginActivity.class));

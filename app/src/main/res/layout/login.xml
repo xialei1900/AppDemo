@@ -44,15 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
-        <TextView
-            android:id="@+id/forgetPwd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="忘记密码？"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="10dp"
-            android:textColor="@drawable/ttv_selector"
-            android:clickable="true"/>
+
         <TextView
             android:id="@+id/register"
             android:layout_width="wrap_content"

@@ -1,8 +1,10 @@
 package com.example.administrator.appdemo;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -52,11 +54,15 @@ public class SetDateActivity extends AppCompatActivity {
     private RelativeLayout days = null;
     private TextView unCalculation = null;
 
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Iconify.with(new FontAwesomeModule());
         setContentView(R.layout.activity_set_date);
+
+        context  = getApplicationContext();
 
         // 获取当前的年、月、日、小时、分钟
         Calendar c = Calendar.getInstance();
@@ -100,6 +106,13 @@ public class SetDateActivity extends AppCompatActivity {
                 SetDateActivity.this.month = monthOfYear+1;
                 SetDateActivity.this.day = dayOfMonth;
                 tv_title.setText(year+"-"+(monthOfYear+1)+"-"+dayOfMonth);
+                SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    expectedDate = format1.parse(String.valueOf(year)+"-"+String.valueOf(month)+"-"+String.valueOf(day));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
 
@@ -136,9 +149,7 @@ public class SetDateActivity extends AppCompatActivity {
         tv_setExpectedDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(SetDateActivity.this,MainActivity.class);
-                startActivity(intent);
+                setExpectedDate();
             }
         });
     }
@@ -186,14 +197,16 @@ public class SetDateActivity extends AppCompatActivity {
 
     //保存预产期
     public void setExpectedDate(){
+        Log.i("xl",new SimpleDateFormat("yyyy-MM-dd").format(expectedDate)+SPUtils.get(MainActivity.mContext, "userName", "").toString());
         final RequestQueue requestQueue = Volley.newRequestQueue(SetDateActivity.this);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://10.18.50.89:9090/", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 //Toast.makeText(RegisterActivity.this,response,Toast.LENGTH_SHORT).show();
                 if(response.equals("S")){
-                    Intent intent = new Intent(SetDateActivity.this,SetDateActivity.class);
-                    SetDateActivity.this.startActivity(intent);
+                    SPUtils.put(context,"expectedDate",new SimpleDateFormat("yyyy-MM-dd").format(expectedDate));
+                    Intent intent = new Intent(SetDateActivity.this,MainActivity.class);
+                    startActivity(intent);
                 }else if(response.equals("E")){
                     Toast.makeText(SetDateActivity.this,"发生了未知错误,保存预产期失败!",Toast.LENGTH_SHORT).show();
                 }
@@ -209,6 +222,7 @@ public class SetDateActivity extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 HashMap<String, String> map = new HashMap<>();
                 map.put("action", "SetExpectedDate");
+                map.put("userName", SPUtils.get(MainActivity.mContext, "userName", "").toString());
                 map.put("expectedDate", new SimpleDateFormat("yyyy-MM-dd").format(expectedDate));
                 return map;
             }

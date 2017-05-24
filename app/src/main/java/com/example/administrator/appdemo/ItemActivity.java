@@ -101,6 +101,13 @@ public class ItemActivity extends AppCompatActivity {
                 getDrinkItem();
                 break;
         }
+        //返回
+        findViewById(R.id.item_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void getItemList() {

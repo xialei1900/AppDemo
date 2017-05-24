@@ -1,10 +1,12 @@
 package bean;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2017/5/19.
  */
 
-public class questionBean {
+public class QuestionBean implements Serializable {
 
     private int Id;
     private String title;

@@ -35,96 +35,96 @@ public class UserInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
 
-        week = (TextView) findViewById(R.id.week);
-        week.setText("" + w);
-        day = (TextView) findViewById(R.id.day);
-        //day.setText(""+d);
-        ok = (Button) findViewById(R.id.ok);
-        ok2 = (Button) findViewById(R.id.ok2);
+//        week = (TextView) findViewById(R.id.week);
+//        week.setText("" + w);
+//        day = (TextView) findViewById(R.id.day);
+//        //day.setText(""+d);
+//        ok = (Button) findViewById(R.id.ok);
+//        ok2 = (Button) findViewById(R.id.ok2);
         writtenOff = (Button) findViewById(R.id.btn_writtenOff);
-        ok.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final RequestQueue requestQueue = Volley.newRequestQueue(UserInfoActivity.this);
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://10.18.50.89:9090/", new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Log.i("xl", response);
-//                        if(response.equals("S")) {
-//                            Toast.makeText(UserInfoActivity.this, response, Toast.LENGTH_LONG).show();
-//                            Log.i("xl", "第" + w + "周，第" + d + "天，成功");
-//                            week.setText(""+w);
-//                            day.setText(""+d);
+//        ok.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                final RequestQueue requestQueue = Volley.newRequestQueue(UserInfoActivity.this);
+//                StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://10.18.50.89:9090/", new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        Log.i("xl", response);
+////                        if(response.equals("S")) {
+////                            Toast.makeText(UserInfoActivity.this, response, Toast.LENGTH_LONG).show();
+////                            Log.i("xl", "第" + w + "周，第" + d + "天，成功");
+////                            week.setText(""+w);
+////                            day.setText(""+d);
+////
+////                            if(d<7){
+////                                d++;
+////                            }else{
+////                                d=1;
+////                                w++;
+////                            }
+////
+////                        }else {
+////                            Toast.makeText(UserInfoActivity.this, response, Toast.LENGTH_LONG).show();
+////                            Log.i("xl", "第" + w + "周，第" + d + "天，失败");
+////                        }
 //
-//                            if(d<7){
-//                                d++;
-//                            }else{
-//                                d=1;
-//                                w++;
-//                            }
+//                    }
+//                }, new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        Toast.makeText(UserInfoActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+//                        Log.i("xl", error.getMessage());
+//                    }
+//                }) {
+//                    @Override
+//                    protected Map<String, String> getParams() {
+//                        HashMap<String, String> map = new HashMap<>();
+//                        map.put("action", "getData");
+//                        map.put("week", "" + w);
+//                        map.put("day", "" + d);
+//                        return map;
+//                    }
+//                };
+//                requestQueue.add(stringRequest);
+//            }
+//        });
 //
-//                        }else {
+//        ok2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                final RequestQueue requestQueue = Volley.newRequestQueue(UserInfoActivity.this);
+//                StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://10.18.50.89:9090/", new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        if (response.equals("S")) {
 //                            Toast.makeText(UserInfoActivity.this, response, Toast.LENGTH_LONG).show();
-//                            Log.i("xl", "第" + w + "周，第" + d + "天，失败");
+//                            Log.i("xl", "第" + w + "周，成功");
+//                            week.setText("" + w);
+//                            w++;
+//                        } else {
+//                            Toast.makeText(UserInfoActivity.this, response, Toast.LENGTH_LONG).show();
+//                            Log.i("xl", "第" + w + "周,失败");
 //                        }
-
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(UserInfoActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-                        Log.i("xl", error.getMessage());
-                    }
-                }) {
-                    @Override
-                    protected Map<String, String> getParams() {
-                        HashMap<String, String> map = new HashMap<>();
-                        map.put("action", "getData");
-                        map.put("week", "" + w);
-                        map.put("day", "" + d);
-                        return map;
-                    }
-                };
-                requestQueue.add(stringRequest);
-            }
-        });
-
-        ok2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final RequestQueue requestQueue = Volley.newRequestQueue(UserInfoActivity.this);
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://10.18.50.89:9090/", new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        if (response.equals("S")) {
-                            Toast.makeText(UserInfoActivity.this, response, Toast.LENGTH_LONG).show();
-                            Log.i("xl", "第" + w + "周，成功");
-                            week.setText("" + w);
-                            w++;
-                        } else {
-                            Toast.makeText(UserInfoActivity.this, response, Toast.LENGTH_LONG).show();
-                            Log.i("xl", "第" + w + "周,失败");
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(UserInfoActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-                        Log.i("xl", error.getMessage());
-                    }
-                }) {
-                    @Override
-                    protected Map<String, String> getParams() {
-                        HashMap<String, String> map = new HashMap<>();
-                        map.put("action", "getDataByself");
-                        map.put("week", "" + w);
-                        return map;
-                    }
-                };
-                requestQueue.add(stringRequest);
-            }
-        });
+//
+//                    }
+//                }, new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        Toast.makeText(UserInfoActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+//                        Log.i("xl", error.getMessage());
+//                    }
+//                }) {
+//                    @Override
+//                    protected Map<String, String> getParams() {
+//                        HashMap<String, String> map = new HashMap<>();
+//                        map.put("action", "getDataByself");
+//                        map.put("week", "" + w);
+//                        return map;
+//                    }
+//                };
+//                requestQueue.add(stringRequest);
+//            }
+//        });
         //注销
         writtenOff.setOnClickListener(new View.OnClickListener() {
             @Override
